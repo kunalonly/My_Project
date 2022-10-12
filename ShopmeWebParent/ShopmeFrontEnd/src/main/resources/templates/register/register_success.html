@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+<meta name="viewport" content="width=device-width,initial-sclae=1.0,minimum-scale=1.0">
+
+<title>[[${pageTitle}]]</title>
+<link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}"/>
+<script type="text/javascript" th:src="@{/webjars/jquery/jquery.min.js}"></script>
+<link rel="stylesheet" type="text/css" th:href="@{/style.css}"/>
+<script type="text/javascript" th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
+</head>
+
+
+<body>
+<div class="container-fluid">
+<div th:replace="navigation :: header_menu"></div>
+
+	<div>&nbsp;</div>
+
+	<div class="text-center">
+		<h2>Customer Registration</h2>
+		<h4>You have registered successfully as a customer</h4>
+		<p>Please check your email to verify our account.</p>
+		<p><a th:href="@{/login}">Login here</a></p>
+	</div>
+
+	<div>&nbsp;</div>
+
+	<div>
+
+<div>
+
+<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#bottomNavbar">
+<span class="navbar-toggler-icon"></span>
+</button>
+<div class="collapse navbar-collapse" id="bottomNavbar">
+<ul class="navbar-nav">
+
+<li class="nav-item ">
+ <a class=" nav-link text-warning font-weight-bold" id="bottomNavbar" href="">About Us</a>
+</li>
+
+<li class="nav-item ">
+
+ <a class="nav-link text-warning font-weight-bold" id="logoutLink" href="">Privacy Notice</a>
+
+</li>
+
+<li class="nav-item ">
+
+ <a class="nav-link text-warning font-weight-bold" id="logoutLink" href="">Return &amp; Refunds </a>
+
+</li>
+
+
+
+
+
+</ul>
+</div>
+</nav>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div >
+<div class="text-center text-dark font-weight-bold">
+
+<p>One Click Pick -CopyRight &copy LTD</p>
+</div>
+
+	
+	
+</div>	
+</body>
+</html> 

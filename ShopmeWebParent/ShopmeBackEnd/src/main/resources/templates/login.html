@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeLeaf.org">
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+<meta name="viewport" content="width=device-width,initial-sclae=1.0,minimum-scale=1.0">
+
+<title>Login Admin-One Click Pick</title>
+<link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}"/>
+
+</head>
+<body>
+<div class="container-fluid">
+<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+<div>
+	<img  th:src="@{/images/logomain.png}"  /> 
+		</div>
+
+</nav>
+<h1 class="mx-auto text-center bg-warning">Admin Login Page</h1>
+<form th:action="@{/login}" method="post" style="max-width: 350px; margin: 0 auto">
+		
+			<div th:if="${param.error}">
+				<p class="text-danger">[[${session.SPRING_SECURITY_LAST_EXCEPTION.message}]]</p>
+			</div>
+			
+			<div th:if="${param.logout}">
+				<p class="text-warning bg-dark" >You Have Logout Successfully </p>
+			</div>
+		
+		
+			<div class="border border-secondary rounded p-3">
+				<p>Access to User</p>
+				<p>
+					<input type="email" name="email" class="form-control" th:placeholder="E-mail" required />
+				</p>
+				<p>
+					<input type="password" name="password" class="form-control" th:placeholder="Enter-Password" required />
+				</p>
+				<p>
+				<input type="checkbox" name="remember-me"/>&nbsp;Remember Me
+				</p>
+				<p>
+					<input type="submit" th:value="login" class="btn btn-primary " />
+				</p>			
+			</div>
+		</form>
+
+</div>
+
+
+<div>&nbsp &nbsp</div>
+<div>&nbsp &nbsp</div>
+<div>&nbsp &nbsp</div>
+<div>&nbsp &nbsp</div>
+<div>&nbsp &nbsp</div>
+<div>&nbsp &nbsp</div>
+<div class="text-center text-warning font-weight-bold bg-dark">
+
+<p>One Click Pick -CopyRight &copy LTD</p>
+</div>
+
+</body>
+</html>

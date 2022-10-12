@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeLeaf.org"
+ xmlns:sec="https://www.thymeLeaf.org/thymeleaf-extras-springsecurity5">
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+<meta name="viewport" content="width=device-width,initial-sclae=1.0,minimum-scale=1.0">
+
+<title>Home-Front End</title>
+<link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}"/>
+<script type="text/javascript" th:src="@{/webjars/jquery/jquery.min.js}"></script>
+<link rel="stylesheet" type="text/css" th:href="@{/style.css}"/>
+<script type="text/javascript" th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
+</head>
+<body>
+
+
+<div class="container-fluid">
+<div th:replace="navigation :: header_menu"></div>
+<div th:replace="navigation :: search_nav"></div>
+
+
+
+
+<div>
+<h2>Welcome to Shopping Cart Front Page</h2>
+<a class ="bg-success"></a>
+
+</div>
+
+
+<div>
+<h1 class="mx-auto text-center bg-dark text-warning">Welcome One Click Pick</h1>
+</div>
+
+<div >
+<h1 class="mx-auto text-center text-warning px-md-5">Shop by Category</h1>
+</div>
+
+<div class="row">
+<div class ="col" th:each="cat:${listCategories}">
+
+<div class="col px-md-5"><img class="border"th:src="@{${cat.imagePath}}" width="150px"/></div>
+
+<div>
+<a th:href="@{'/c/' + ${cat.alias}}" class="text-dark font-weight-bold">[[${cat.name}]]</a>
+
+</div>
+</div>
+</div>
+
+<div>
+
+<div>
+
+<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#bottomNavbar">
+<span class="navbar-toggler-icon"></span>
+</button>
+<div class="collapse navbar-collapse" id="bottomNavbar">
+<ul class="navbar-nav">
+
+<li class="nav-item ">
+ <a class=" nav-link text-warning font-weight-bold" id="bottomNavbar" href="">About Us</a>
+</li>
+
+<li class="nav-item ">
+
+ <a class="nav-link text-warning font-weight-bold" id="logoutLink" href="">Privacy Notice</a>
+
+</li>
+
+<li class="nav-item ">
+
+ <a class="nav-link text-warning font-weight-bold" id="logoutLink" href="">Return &amp; Refunds </a>
+
+</li>
+
+
+
+
+
+</ul>
+</div>
+</nav>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div >
+<div class="text-center text-dark font-weight-bold">
+
+<p>One Click Pick -CopyRight &copy LTD</p>
+</div>
+
+
+
+</div>
+<script type="text/javascript">
+$(document).ready(function(){
+$("#logoutLink").on("click",function(e)
+{
+e.preventDefault();
+document.logoutForm.submit();
+});
+});
+</script>
+</body>
+</html>

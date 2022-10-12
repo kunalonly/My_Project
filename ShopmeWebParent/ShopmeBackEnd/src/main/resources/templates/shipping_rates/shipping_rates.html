@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+<meta name="viewport" content="width=device-width,initial-sclae=1.0,minimum-scale=1.0">
+
+<title>Shipping Rates</title>
+<link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}"/>
+<link rel="stylesheet" type="text/css" th:href="@{/fontawesom/all.css}"/>
+<link rel="stylesheet" type="text/css" th:href="@{/style.css}"/>
+<script type="text/javascript" th:src="@{/webjars/jquery/jquery.min.js}"></script>
+<script type="text/javascript" th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
+</head>
+<body>
+<div class="container-fluid">
+	<div> 
+<nav class="navbar navbar-expand-sm bg-success navbar-dark">
+
+<a class="navbar-brand" th:href="@{/}">
+<img th:src="@{/images/waste-management.png}"/>
+</a>
+<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#topNavbar">
+<span class="navbar-toggler-icon"></span>
+</button>
+<div class="collapse navbar-collapse" id="topNavbar">
+<ul class="navbar-nav">
+<li class="nav-item">
+<a class="nav-link text-warning font-weight-bold"  th:href="@{/users}"> Users </a>
+</li>
+<li class="nav-item">
+<a class="nav-link text-warning font-weight-bold" th:href="@{/categary}">Create Garbage Bin</a>
+</li>
+<li class="nav-item">
+<a class="nav-link text-warning font-weight-bold" th:href="@{/customer}">Update/Delete Garbage Bin</a>
+</li>
+<li class="nav-item">
+<a class="nav-link text-warning font-weight-bold" th:href="@{/product}">Assign best route for drivers</a>
+</li>
+<li class="nav-item">
+<a class="nav-link text-warning font-weight-bold" th:href="@{/brand}">Manage driver</a>
+</li>
+<li class="nav-item">
+<a class="nav-link text-warning font-weight-bold" th:href="@{/setting}">View Garbage Report</a>
+</li>
+<li class="nav-item">
+<a class="nav-link text-warning font-weight-bold" th:href="@{/orders}">View complaints from public</a>
+</li>
+</ul>
+</div>
+</nav>
+</div>
+	
+	<div>
+		<h2>Shipping Rates</h2>	
+
+		<a th:href="@{/shipping_rates/new}" class="fas fa-folder-plus fa-2x icon-dark mr-2"></a>
+	</div>
+
+
+
+	<div class="full-details">
+		<table class="table table-bordered table-striped table-hover table-responsive-xl">
+			<thead class="thead-dark">
+				<tr>
+					 <th>Shipping ID</th>
+					<th>Shipping Country</th>
+				<th>Shipping States</th>
+					<th>Shipping Rates</th>
+				<th>Days</th>
+						<th>COD Supported</th>
+				</tr>								
+			</thead>
+			<tbody>
+				<tr th:each="rate : ${shippingRates}">
+					<td>[[${rate.id}]]</td>
+					<td>[[${rate.country.name}]]</td>
+					<td>[[${rate.state}]]</td>
+					<td>[[${rate.rate}]]</td>
+					<td>[[${rate.days}]]</td>
+					<td></td>
+					<td>
+<a class="fas fa-file-alt fa-1x icon-green" th:href="@{'/products/detail/' +${rate.id}}" title="View Details of this Product"></a>
+Details
+&nbsp; 
+<a class="fas fa-edit fa-1x icon-green" th:href="@{'/products/edit/' +${rate.id}}" title="Edit this user"></a>
+Edit
+&nbsp; 
+<a class="fas fa-trash fa-1x icon-red" th:href="@{'/products/delete/' +${rate.id}}" title="Delete this user"></a>
+Delete
+
+</td>					
+				</tr>
+			</tbody>
+		</table>
+	</div>
+
+	<div class="less-details">
+		<div th:each="rate : ${shippingRates}" class="row m-1">
+			<div class="col-4">
+				<span><b>[[${rate.country.name}]]</b></span>
+				<br/>
+				<span>[[${rate.state}]]</span>
+			</div>
+		
+			<div>&nbsp;</div>
+		</div>	
+	</div>		
+
+
+</div>
+
+<script th:src="@{/js/common_list.js}"></script>
+<script type="text/javascript">
+	moduleURL = "[[@{/shipping_rates}]]";
+
+	entityName = "shipping rate";
+</script>
+</body>
+</html> 
